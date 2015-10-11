@@ -14,6 +14,7 @@ $(document).ready(function(){
 			"shireQuotes":data
 		});
 
+
 		// Add the compiled html to the page
 		$('.content-placeholder').html(theCompiledHtml);
 	});
@@ -39,4 +40,5 @@ function clean_google_sheet_json(data){
 	});
 	return formatted_json;
 };
+
 

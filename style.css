@@ -7,14 +7,15 @@ header{
 }
 .quoteBlock{
 	border:2px solid black;
+	padding:0;
 	margin:10px;
 }
 .quote{
 	font-size: 30px;
-	padding:10px;
+	padding:20px;
 }
-.source{
-	text-align: right;
+.author{
+	text-align: center;
 	font-size: 20px;
-	padding:10px;
+	border-bottom: 2px solid black;
 }

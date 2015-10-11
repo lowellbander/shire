@@ -28,21 +28,16 @@
 
 	<script id="quote-template" type="text/x-handlebars-template">
 		 <div class="container-fluid">
-			 <div class="col-md-2">
-				 {{#each shireQuotes}}
-				 	<div class="col-md-12 quoteBlock">
+			 {{#each shireQuotes}}
+				 	<div class="col-md-3 quoteBlock">
+				 		<div class="author">
+				 			{{author}}
+				 		</div>
 				 		<div class="quote">
 				 			"{{quote}}"
 				 		</div>
-				 		<div class="source">
-				 			- {{author}}
-				 		</div>
 				 	</div>
-				 {{/each}}
-			 </div>
-			 <div class="col-md-2"></div>
-			 <div class="col-md-2"></div>
-
+			 {{/each}}
 		 </div>
 	</script>
 	<header>
