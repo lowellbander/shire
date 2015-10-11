@@ -11,7 +11,7 @@
 
 	<!-- Optional theme -->
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
-
+ 	
 	<!-- Latest compiled and minified JavaScript -->
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 
@@ -28,16 +28,21 @@
 
 	<script id="quote-template" type="text/x-handlebars-template">
 		 <div class="container-fluid">
-			 {{#each shireQuotes}}
-			 	<div class="col-md-3 quoteBlock">
-			 		<div class="quote">
-			 			"{{quote}}"
-			 		</div>
-			 		<div class="source">
-			 			- {{source}} </br> {{date}}
-			 		</div>
-			 	</div>
-			 {{/each}}
+			 <div class="col-md-2">
+				 {{#each shireQuotes}}
+				 	<div class="col-md-12 quoteBlock">
+				 		<div class="quote">
+				 			"{{quote}}"
+				 		</div>
+				 		<div class="source">
+				 			- {{author}}
+				 		</div>
+				 	</div>
+				 {{/each}}
+			 </div>
+			 <div class="col-md-2"></div>
+			 <div class="col-md-2"></div>
+
 		 </div>
 	</script>
 	<header>
