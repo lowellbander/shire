@@ -1,0 +1,19 @@
+header{
+	text-align: center;
+}
+.container-fluid{
+	margin-left: 15%;
+	margin-right: 15%;
+}
+.quoteBlock{
+	border:2px solid black;
+	margin:10px;
+}
+.quote{
+	font-size: 30px;
+	padding:10px;
+}
+.source{
+	text-align: right;
+	padding:10px;
+}
