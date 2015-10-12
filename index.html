@@ -19,14 +19,41 @@
 	<div id="content">
 	</div>
 	<script type="text/babel">
-		var myData = [
-		  {author: "Aman", text: "If you dick around now, you scientifically cannot dick around later."},
-		  {author: "Aman", text: "I gota call the postal annex."}
-		];
+
+
+		function clean_google_sheet_json(data){
+			var formatted_json = [];
+			var elem = {};
+			var real_keyname = '';
+			$.each(data.feed.entry, function(i, entry) {
+				elem = {};
+				$.each(entry, function(key, value){
+					// fields that were in the spreadsheet start with gsx$
+					if (key.indexOf("gsx$") == 0) 
+					{
+						// get everything after gsx$
+						real_keyname = key.substring(4); 
+						elem[real_keyname] = value['$t'];
+					}
+				});
+				formatted_json.push(elem);
+			});
+			return formatted_json;
+		};	
 		var QuoteContainer = React.createClass({
+			getInitialState: function(){
+				return {data:[]};
+			},
+			componentDidMount: function(){
+				$.getJSON(this.props.url, function(json){
+
+					this.setState({data:clean_google_sheet_json(json)});
+
+				}.bind(this));
+			},
 			render: function(){
 
-				var quoteNodes = this.props.data.map(function(myQuotes){
+				var quoteNodes = this.state.data.map(function(myQuotes){
 					return(
 						<Quote myAuthor={myQuotes.author}>
 							{myQuotes.text}
@@ -51,12 +78,16 @@
 					</div>
 				)
 			}
-		})			
+		})
+
+
 
 		ReactDOM.render(
-		  <QuoteContainer data={myData}/>,
+		  <QuoteContainer url="https://spreadsheets.google.com/feeds/list/1m1dmaFdFACRzloJQZAssirckGMdxNIYqD5o-ugSwc3g/od6/public/values?alt=json"/>,
 		  document.getElementById('content')
 		);
+
+
 	</script>
 	</body>
 
