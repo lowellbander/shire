@@ -19,6 +19,9 @@
 	<!-- Latest compiled and minified JavaScript -->
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 	<link rel="stylesheet" type="text/css" href="style.css">
+
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/masonry/3.3.2/masonry.pkgd.min.js"></script>
+
 	</head>
 
 	<body>
@@ -59,11 +62,13 @@
 		var Quote = React.createClass({
 			render: function(){
 				return(
-					<div className="quote, col-md-4">
-						<h2 className="quoteAuthor">
+					<div className="quoteBlock col-xs-3">
+						<div className="quoteAuthor">
 							{this.props.myAuthor}
-						</h2>
-						{this.props.children}
+						</div>
+						<div className="quoteBody">
+							{this.props.children}
+						</div>
 					</div>
 				)
 			}
@@ -93,6 +98,14 @@
 			});
 			return formatted_json;
 		};	
+		$( document ).ready( function(){
+			$('QuoteContainer').masonry({
+			  // options
+			  itemSelector: '.quoteBlock',
+			  columnWidth: 200
+			});
+		});
+
 
 
 	</script>

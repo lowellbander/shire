@@ -2,16 +2,20 @@ header{
 	text-align: center;
 }
 .QuoteContainer{
-	margin-left: auto;
-	margin-right: auto;
+	margin-left: 10%;
+	margin-right: 10%;
+
 }
-.quote, .col-md-4{
+.quoteBlock{
+}
+.quoteBody{
 	border:2px solid black;
-	padding:0;
-	margin:10px;
+	padding: 20px;
+
 }
 .quoteAuthor{
 	text-align: center;
-	font-size: 20px;
-	border-bottom: 2px solid black;
+	border-top: 2px solid black;
+	border-left: 2px solid black;
+	border-right: 2px solid black;
 }
