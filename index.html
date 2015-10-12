@@ -4,45 +4,47 @@
 	<meta charset="utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 	<title>Just Shire Things</title>
-	<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
-
-	<!-- Latest compiled and minified CSS -->
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
-
-	<!-- Optional theme -->
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
- 	
-	<!-- Latest compiled and minified JavaScript -->
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/2.0.0/handlebars.js"></script>
-
-	<script src="main.js"></script>
-	<link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet" href="css/base.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react/0.14.0/react.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react/0.14.0/react-dom.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.6.15/browser.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/marked/0.3.2/marked.min.js"></script>
 
 	</head>
 
 	<body>
-
-	</body>
-
-	<script id="quote-template" type="text/x-handlebars-template">
-		 <div class="container-fluid">
-			 {{#each shireQuotes}}
-				 	<div class="col-md-3 quoteBlock">
-				 		<div class="author">
-				 			{{author}}
-				 		</div>
-				 		<div class="quote">
-				 			"{{quote}}"
-				 		</div>
-				 	</div>
-			 {{/each}}
-		 </div>
-	</script>
 	<header>
 		<h1>Just Shire Things</h1>
 	</header>
-	<div class="content-placeholder">
+	<div id="content">
 	</div>
+	<script type="text/babel">
+		var QuoteContainer = React.createClass({
+			render: function(){
+				return(
+					<Quote author="Aman">"If you dick around now, you scientifically cannot dick around later."</Quote>
+				)
+			}
+		})
+		var Quote = React.createClass({
+			render: function(){
+				return(
+					<div className="quoteBody">
+						<h2 className="quoteAuthor">
+							{this.props.children}
+						</h2>
+						{this.props.author}
+					</div>
+				)
+			}
+		})			
+
+		ReactDOM.render(
+		  <QuoteContainer />,
+		  document.getElementById('content')
+		);
+	</script>
+	</body>
+
 </html>

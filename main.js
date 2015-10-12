@@ -2,24 +2,12 @@ $(document).ready(function(){
     url = "https://spreadsheets.google.com/feeds/list/1m1dmaFdFACRzloJQZAssirckGMdxNIYqD5o-ugSwc3g/od6/public/values?alt=json"
 
 	$.getJSON(url, function(json){
+
 		var data = clean_google_sheet_json(json);
-
-		var theTemplateScript = $("#quote-template").html();
-
-		// Compile the template
-		var theTemplate = Handlebars.compile(theTemplateScript);
-
-		// Pass our data to the template
-		var theCompiledHtml = theTemplate({
-			"shireQuotes":data
-		});
-
-
-		// Add the compiled html to the page
-		$('.content-placeholder').html(theCompiledHtml);
 	});
 
 });
+
 
 function clean_google_sheet_json(data){
 	var formatted_json = [];
