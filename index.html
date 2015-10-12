@@ -2,7 +2,7 @@
 <html lang="en">
 	<head>
 	<meta charset="utf-8" />
-	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+	<meta name="viewport" content="width=device-width"/>
 	<title>Just Shire Things</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/react/0.14.0/react.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/react/0.14.0/react-dom.js"></script>
@@ -31,7 +31,10 @@
 	<div id="content">
 	</div>
 	<script type="text/babel">
-
+		var masonryOptions = {
+   			transitionDuration: 0,
+   			itemSelector: '.quoteBlock'
+		}
 		var QuoteContainer = React.createClass({
 			getInitialState: function(){
 				return {data:[]};
@@ -53,9 +56,16 @@
 					)
 				})
 				return(
-					<div className="QuoteContainer">
-						{quoteNodes}
-					</div>
+					<Masonry
+		                className={'QuoteContainer'} // default ''
+		                elementType={'div'} // default 'div'
+		                options={masonryOptions} // default {}
+		            >
+		                {quoteNodes}
+		            </Masonry>
+					// <div className="QuoteContainer">
+					// 	{quoteNodes}
+					// </div>
 				)
 			}
 		})
@@ -98,13 +108,6 @@
 			});
 			return formatted_json;
 		};	
-		$( document ).ready( function(){
-			$('QuoteContainer').masonry({
-			  // options
-			  itemSelector: '.quoteBlock',
-			  columnWidth: 200
-			});
-		});
 
 
 
